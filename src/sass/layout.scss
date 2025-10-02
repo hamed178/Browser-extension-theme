@@ -1,0 +1,51 @@
+@use 'variable' as var;
+*,
+*::after,
+*::before{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.body{    
+    min-height: 100vh;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    font-family: sans-serif;
+    text-wrap:balance;
+    // color: var.$color-Dark-1;
+}
+
+.container{    
+    height: auto;
+    width: auto;
+    margin: clamp(20px,10%, 2vw) clamp(10px, 5%, 4vw)
+}
+.head{    
+    padding: 1rem;
+    border-radius: var.$border-Pixel;
+    display: flex;
+    align-items: center;
+    // background: #000;
+}
+.toggle-mode{   
+    position: relative;
+    margin-left: auto;
+    padding: 2rem;    
+    border-radius: var.$border-Pixel;
+    cursor: pointer;
+    &> *{
+    position: absolute;
+    display: block;
+    top: 50% ;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80%;
+    height: 80%;    
+    pointer-events: none; 
+    cursor: pointer;  
+    & >img{
+        width: 100%;        
+    }
+}
+}

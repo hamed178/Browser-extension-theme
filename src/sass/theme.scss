@@ -1,0 +1,119 @@
+@use 'variable' as var;
+
+.body-dark{
+    background: var.$dark-Gradient !important;   
+    color: var.$color-Light-1 !important;
+    animation: fadeIn 1s ease-in-out;
+    }
+.body-light{
+    background: var.$light-Gradient !important;   
+    color: var.$color-Light-1 !important; 
+    animation: fadeIn 1s ease-in-out;
+   
+}
+
+.head-light{
+   background: var.$color-Light-4 !important;
+}
+.head-dark{
+    background: var.$color-Dark-2 !important;
+}
+.toggle-mode-light{
+    background: rgba(0,0,0, .1);
+}
+.toggle-mode-dark{
+    background: var.$color-Dark-4;
+}
+.extsions-list_item-dark{
+      background: var.$color-Dark-2;
+      animation: posining .5s ease-in-out;
+}
+.extsions-list_item-light{
+      background: var.$color-Light-4 !important;
+        animation: posining .5s ease-in-out;
+}
+.extsions-control-header-dark{
+    color: var.$color-Light-1 !important;
+}
+.extsions-control-header-light{
+    color: var.$color-Dark-1 !important;
+}
+.extsions-control_button-dark{
+      background: var.$color-Dark-3;
+      color: var.$color-Light-1;
+      box-shadow: 0 5px 5px rgba(0, 140, 255, 0.219);
+}
+.extsions-control_button-light{
+      background: var.$color-Light-4;
+      color: var.$color-Dark-1;      
+}
+.extsions-list_item-head-text-dark{
+  p,h2{
+      color: var.$color-Light-1 !important;
+   }
+}  
+.extsions-list_item-head-text-light{
+   p,h2{
+         color: var.$color-Dark-1 !important;
+         }   
+}
+.extsions-list_item-remove-btn-dark{
+      background: var.$color-Dark-4;
+      color: var.$color-Light-1 !important;
+}
+.extsions-list_item-remove-btn-light{
+      background: var.$color-Light-4;
+      color: var.$color-Dark-1 !important;
+}
+
+
+
+.extsions-list_item-removed{
+    animation: fadeOut 0.5s ease-in-out forwards;
+}
+
+
+@keyframes fadeOut {
+    0%{
+        opacity: .75;
+        transform: scale(.8) translate(2rem , -5rem);
+    }
+    50%{
+        opacity: .5;
+        transform: scale(.5) translate(5rem , -15rem);
+    }
+    100%{
+        opacity: 0;
+        transform: scale(0) translate(10rem , -25rem);
+        display: none;
+    }
+} 
+
+@keyframes fadeIn{
+    0%{
+        filter: blur(15px);
+    }
+    50%{
+        filter: blur(10px);
+    }
+    100%{
+        filter: blur(0px);
+    }
+}
+
+
+
+@keyframes posining{
+    0%{
+        transform: translate(-10rem, 10rem);
+        opacity: 0;
+    }
+    50%{
+        transform: translate(-5rem, 5rem);
+        opacity: .5;
+    }
+    100%{
+        transform: translate(0px , 0px);
+        opacity: 1;
+    }
+}
