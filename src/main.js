@@ -1,4 +1,39 @@
 import "./sass/main.scss"
+
+// Import all logos
+import logoDevlens from './assets/images/logo-devlens.svg';
+import logoStyleSpy from './assets/images/logo-style-spy.svg';
+import logoSpeedBoost from './assets/images/logo-speed-boost.svg';
+import logoJsonWizard from './assets/images/logo-json-wizard.svg';
+import logoTabMasterPro from './assets/images/logo-tab-master-pro.svg';
+import logoViewportBuddy from './assets/images/logo-viewport-buddy.svg';
+import logoMarkupNotes from './assets/images/logo-markup-notes.svg';
+import logoGridGuides from './assets/images/logo-grid-guides.svg';
+import logoPalettePicker from './assets/images/logo-palette-picker.svg';
+import logoLinkChecker from './assets/images/logo-link-checker.svg';
+import logoDomSnapshot from './assets/images/logo-dom-snapshot.svg';
+import logoConsolePlus from './assets/images/logo-console-plus.svg';
+import logo from './assets/images/logo.svg';
+import logoLight from './assets/images/logo-light.svg';
+
+// Mapping object for logo paths to imported assets
+const logoMap = {
+  '/src/assets/images//logo-devlens.svg': logoDevlens,
+  '/src/assets/images//logo-style-spy.svg': logoStyleSpy,
+  '/src/assets/images/logo-speed-boost.svg': logoSpeedBoost,
+  '/src/assets/images/logo-json-wizard.svg': logoJsonWizard,
+  '/src/assets/images/logo-tab-master-pro.svg': logoTabMasterPro,
+  '/src/assets/images/logo-viewport-buddy.svg': logoViewportBuddy,
+  '/src/assets/images/logo-markup-notes.svg': logoMarkupNotes,
+  '/src/assets/images/logo-grid-guides.svg': logoGridGuides,
+  '/src/assets/images/logo-palette-picker.svg': logoPalettePicker,
+  '/src/assets/images/logo-link-checker.svg': logoLinkChecker,
+  '/src/assets/images/logo-dom-snapshot.svg': logoDomSnapshot,
+  '/src/assets/images/logo-console-plus.svg': logoConsolePlus,
+  '/src/assets/images/logo.svg': logo,
+  '/src/assets/images/logo-light.svg': logoLight,
+};
+
 const btnsList = document.querySelector(".extsions-control-buttons");
 const table = document.querySelector(".extsions-list");
 const lightBtn = document.querySelector('.toggle-logo-light');
@@ -18,11 +53,11 @@ let data = await loadData();
 
 
 
-function genrateMarkup(data){  
+function genrateMarkup(data){
    return `<div class="extsions-list_item extsions-list_item-${Theme}">
 
           <div class="extsions-list_item-head">
-            <img src="${data.logo.slice(1)}" class="logo" alt="logo-extension">
+            <img src="${logoMap[data.logo]}" class="logo" alt="logo-extension">
             <div class="extsions-list_item-head-text extsions-list_item-head-text-${Theme}">
               <h2>${data.name}</h2>
               <p>${data.description}</p>
@@ -150,17 +185,17 @@ function setTheme(theme=Theme){
       }
 
       if(theme==="dark"){
-        logo.setAttribute('src','/src/assets/images/logo-light.svg')
+        logo.setAttribute('src', logoMap['/src/assets/images/logo-light.svg'])
         lightBtn.style.display = "block";
         darkBtn.style.display = "none";
         el.classList.add(el.className.split(' ')[0]+'-dark');
-        
+
       }else if(theme==="light"){
-        logo.setAttribute('src','/src/assets/images/logo.svg');
+        logo.setAttribute('src', logoMap['/src/assets/images/logo.svg']);
         lightBtn.style.display = "none";
         darkBtn.style.display = "block";
         el.classList.add(el.className.split(' ')[0]+'-light');
-        
+
       }
 
 
