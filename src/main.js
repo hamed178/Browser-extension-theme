@@ -22,7 +22,7 @@ function genrateMarkup(data){
    return `<div class="extsions-list_item extsions-list_item-${Theme}">
 
           <div class="extsions-list_item-head">
-            <img src="src${data.logo.slice(1)}" type="image/svg+xml" class="logo"></img>
+            <img src="src${data.logo.slice(1)}" type="image/svg+xml" class="logo" alt="logo-extension">
             <div class="extsions-list_item-head-text extsions-list_item-head-text-${Theme}">
               <h2>${data.name}</h2>
               <p>${data.description}</p>
