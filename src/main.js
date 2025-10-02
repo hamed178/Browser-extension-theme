@@ -22,7 +22,7 @@ function genrateMarkup(data){
    return `<div class="extsions-list_item extsions-list_item-${Theme}">
 
           <div class="extsions-list_item-head">
-            <object data="src${data.logo.slice(1)}" type="image/svg+xml" class="logo"></object>
+            <img src="src${data.logo.slice(1)}" type="image/svg+xml" class="logo"></img>
             <div class="extsions-list_item-head-text extsions-list_item-head-text-${Theme}">
               <h2>${data.name}</h2>
               <p>${data.description}</p>
@@ -150,13 +150,13 @@ function setTheme(theme=Theme){
       }
 
       if(theme==="dark"){
-        logo.setAttribute('data','src/assets/images/logo-light.svg')
+        logo.setAttribute('src','src/assets/images/logo-light.svg')
         lightBtn.style.display = "block";
         darkBtn.style.display = "none";
         el.classList.add(el.className.split(' ')[0]+'-dark');
         
       }else if(theme==="light"){
-        logo.setAttribute('data','src/assets/images/logo.svg');
+        logo.setAttribute('src','src/assets/images/logo.svg');
         lightBtn.style.display = "none";
         darkBtn.style.display = "block";
         el.classList.add(el.className.split(' ')[0]+'-light');
