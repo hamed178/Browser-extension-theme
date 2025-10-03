@@ -15,7 +15,7 @@ async function loadData() {
   }
 }
 let data = await loadData();
-
+let timeoutIds = [];
 
 
 function genrateMarkup(data){  
@@ -48,14 +48,24 @@ function Diaplay(option="all"){
   }
   
   table.innerHTML=" "; 
-  newRR.forEach((item, index) => {
-      setTimeout(() => {
-      let ht = genrateMarkup(item);
-        table.insertAdjacentHTML("beforeend",ht);
-        toggleExtension(); 
-        remvoeExtension();
-      }, 200 * (index + 1)); // Delay increases with each item
-    }); 
+  function processItem(item, index, timeoutIds) {
+  const timeoutId = setTimeout(() => {
+    let ht = genrateMarkup(item);
+    table.insertAdjacentHTML("beforeend", ht);
+    toggleExtension(); 
+    remvoeExtension();
+  }, 200 * (index + 1)); // Delay increases with each item
+  
+  // Store the ID for later clearing
+  timeoutIds.push(timeoutId);
+}
+// Clear existing timeouts and start new processing
+timeoutIds.forEach(id => clearTimeout(id));
+timeoutIds = []; // Reset the array
+// Call the function inside the forEach loop
+newRR.forEach((item, index) => {
+  processItem(item, index, timeoutIds);
+});
     
 }
 
